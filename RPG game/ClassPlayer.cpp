@@ -57,11 +57,9 @@ void Player::InventoryCheak() {
 void Player::CheckEXP() {
 	while (true) {
 		if (exp >= MaxExp) {
-			double* EXP = new double;
-			*EXP = exp - MaxExp;
+			double EXP = exp - MaxExp;
 			exp = 0;
-			exp += *EXP;
-			delete EXP;
+			exp += EXP;
 			LVLUP();
 		}
 		else { return; }

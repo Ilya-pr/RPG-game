@@ -21,7 +21,7 @@ public:
 
 
 private:
-
+	int test;
 	int coins = 0;
 	int lvl = 1;
 	double exp = 0;
