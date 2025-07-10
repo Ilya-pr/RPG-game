@@ -5,12 +5,21 @@
 #include "ChangeClass.h"
 
 
+
+
+
 int main() {
 	setlocale(LC_ALL, "RU");
 	Player player;
-	SavePlayer save;
 	
-	//player.Regeneration();
+	player.LVLUP();
+	
+
+	player.GetMaxHp();
+	player.Regeneration();
+
 	player.InfoPlayer();
+
+
 }
 

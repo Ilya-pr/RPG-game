@@ -1,13 +1,11 @@
 #pragma once
 #include <vector>
 #include <string>
-
-class Health;
+#include "HealthPlayer.h"
 
 class Player
 {
 public:
-
 	int GetCoins() const;
 	int GetLVL() const;
 	int CountSteps();
@@ -17,11 +15,14 @@ public:
 	void InventoryAdd(std::string Item);
 	void InventoryCheak();
 	void CheckEXP();
-	void Regeneration();
 
+	void Regeneration();
+	double GetMaxHp() ;
 
 private:
-	int test;
+
+	Health health_;
+	
 	int coins = 0;
 	int lvl = 1;
 	double exp = 0;

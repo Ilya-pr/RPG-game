@@ -1,11 +1,9 @@
 #include "ClassPlayer.h"
-#include "HealthPlayer.h"
 #include <iostream>
 
 int Player::GetCoins() const { return coins; };
 int Player::GetLVL() const { return lvl; };
 
-Health health;
 
 //int CountSteps() {
 //	int Count;
@@ -25,16 +23,17 @@ std::string Inventory::GetInventory() const
 
 void Player::InfoPlayer() {
 
-	std::cout << "Hp: " << health.GetHp() << "\nCoins: " << coins << "\nLvl: " << lvl << std::endl;
+	std::cout << "Hp: " <<health_.GetHp() << "\nCoins: " << coins << "\nlvl: " << lvl << std::endl;
 }
 
 void Player::LVLUP() {
 
-	++lvl;/*
-	MaxHp = MaxHp * 1.1;
-	damage = damage * 1.1;
+	++lvl;
+	double newMaxHp = health_.GetMaxHp() * 1.1;
+	health_.SetMaxHp(newMaxHp);
+	//damage = damage * 1.1;
 	MaxExp = MaxExp * 1.8;
-	CheckEXP();*/
+	CheckEXP();
 }
 void Player::InventoryAdd(std::string Item) {/*
 	*inventory.push_back(Item);
@@ -64,4 +63,11 @@ void Player::CheckEXP() {
 		}
 		else { return; }
 	}
+}
+
+void Player::Regeneration() {
+	return health_.Regeneration();
+}
+double Player::GetMaxHp()  {
+	return health_.GetMaxHp();
 }
